@@ -1,0 +1,37 @@
+import time
+import random
+import matplotlib.pyplot as plt
+
+array = []
+
+n = int(input('Quantos numeros deseja inserir na lista: '))
+
+class BubbleSort:
+    
+    def __init__(self, lista):
+        self.lista = lista
+    
+    def ordenacao(self):
+        size = len(self.lista)
+        # O(1)
+        for x in range(size-1):
+            for y in range(size-1):
+                if self.lista[y] > self.lista[y+1]:
+                    self.lista[y],self.lista[y+1] = self.lista[y+1],self.lista[y]
+       
+    def print_list(self):
+        print('LISTA ORDENADA: ')
+        print(self.lista)
+    
+
+for x in range(n):
+    array.append(random.randint(0,100)) 
+    
+b=BubbleSort(array)
+before = time.time()
+b.ordenacao()
+b.print_list()
+after = time.time()
+time_ordencao = after - before
+print()
+print(f'Tempo de ordenação com {n} numeros {time_ordencao} seconds.')
